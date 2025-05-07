@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Group Portfolio - Ramadan, Zacaria, Elfatih</title>
   <link rel="stylesheet" href="styles.css" />
+  <script>
+    document.addEventListener('click', function (e) {
+      if (e.target.classList.contains('smooth-scroll')) {
+    e.preventDefault();
+    const targetElement = document.querySelector(e.target.getAttribute('href'));
+    targetElement?.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  </script>
+
 </head>
 <body>
   <div class="grid-container">
@@ -12,24 +22,24 @@
     <header class="header">
       <img src="group-logo.jpg" alt="Group Logo" class="logo">
       <h1>Welcome to Our Personal Website</h1>
-      <p class="subheading">Mohamed Ramadan,Hamza Zacaria & Abdulrahman Elfatih</p>
+      <p class="subheading">Mohamed Ramadan, Hamza Zacaria, Abdulrahman Elfatih</p>
     </header>
 
     <!-- Left Menu -->
     <nav class="left-menu">
       <ul>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#members">Meet the Team</a></li>
-        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about" class ="smooth-scroll">About Us</a></li>
+        <li><a href="#members" class ="smooth-scroll">Meet the Team</a></li>
+        <li><a href="#projects" class ="smooth-scroll">Projects</a></li>
       </ul>
     </nav>
 
     <!-- Right Menu -->
     <nav class="right-menu">
       <ul>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#social">Social Links</a></li>
+        <li><a href="#gallery" class ="smooth-scroll">Gallery</a></li>
+        <li><a href="#contact" class ="smooth-scroll">Contact</a></li>
+        <li><a href="#social" class ="smooth-scroll">Social Links</a></li>
       </ul>
     </nav>
 
