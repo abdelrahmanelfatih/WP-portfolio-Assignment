@@ -5,22 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Group Portfolio - Ramadan, Zacaria, Elfatih</title>
   <link rel="stylesheet" href="styles.css" />
-  <script>
-    document.addEventListener('click', function (e) {
-      if (e.target.classList.contains('smooth-scroll')) {
-    e.preventDefault();
-    const targetElement = document.querySelector(e.target.getAttribute('href'));
-    targetElement?.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-  </script>
+  
 
 </head>
 <body>
   <div class="grid-container">
     <!-- Header -->
     <header class="header">
-      <img src="group-logo.jpg" alt="Group Logo" class="logo">
+      <img src="images/group-logo.png" alt="Group Logo" class="logo">
       <h1>Welcome to Our Personal Website</h1>
       <p class="subheading">Mohamed Ramadan, Hamza Zacaria, Abdulrahman Elfatih</p>
     </header>
@@ -28,18 +20,18 @@
     <!-- Left Menu -->
     <nav class="left-menu">
       <ul>
-        <li><a href="#about" class ="smooth-scroll">About Us</a></li>
-        <li><a href="#members" class ="smooth-scroll">Meet the Team</a></li>
-        <li><a href="#projects" class ="smooth-scroll">Projects</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#members">Meet the Team</a></li>
+        <li><a href="#projects">Projects</a></li>
       </ul>
     </nav>
 
     <!-- Right Menu -->
     <nav class="right-menu">
       <ul>
-        <li><a href="#gallery" class ="smooth-scroll">Gallery</a></li>
-        <li><a href="#contact" class ="smooth-scroll">Contact</a></li>
-        <li><a href="#social" class ="smooth-scroll">Social Links</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#social">Social Links</a></li>
       </ul>
     </nav>
 
@@ -53,7 +45,7 @@
         <!-- Member Sections with alternating layout -->
         <section class="member-section" id="mohamed" style="background-image: url('mohamed-project.jpg');">
             <div class="member-content left">
-            <img src="C:\Users\super\Downloads\eepy  cat.jpg" alt="Mohamed Ramadan" class="member-photo">
+            <img src="images/Mohamed1.png" alt="Mohamed Ramadan" class="member-photo">
             <div class="text">
                 <h2>Mohamed Ramadan</h2>
                 <p>Mohamed did everything. His project, displayed in the background, is kirby if he ate gru.</p>
@@ -63,7 +55,7 @@
         
         <section class="member-section" id="hamza" style="background-image: url('hamza-project.jpg');">
             <div class="member-content right">
-            <img src="C:\Users\super\Downloads\UTM logo.jpg" alt="Hamza Zacaria" class="member-photo">
+            <img src="images/Hamza1.jpg" alt="Hamza Zacaria" class="member-photo">
             <div class="text">
                 <h2>Hamza Zacaria</h2>
                 <p>Hamza created nothing and helped with nada. His project shown here is something.</p>
@@ -73,7 +65,7 @@
         
         <section class="member-section" id="abdulrahman" style="background-image: url('abdul-project.jpg');">
             <div class="member-content left">
-            <img src="C:\Users\super\Downloads\Persona.jpg" alt="Abdulrahman Elfatih" class="member-photo">
+            <img src="images/Abdul1.jpg" alt="Abdulrahman Elfatih" class="member-photo">
             <div class="text">
                 <h2>Abdulrahman Elfatih</h2>
                 <p>Abdulrahman did something. His highlighted project is a thing</p>
@@ -83,10 +75,26 @@
         
       
         <section id="gallery">
-          <h2>Gallery</h2>
-          <p>Here are some visuals representing our team and work.</p>
-          <img src="gallery1.jpg" alt="Gallery Image 1" class="project-image">
-          <img src="gallery2.jpg" alt="Gallery Image 2" class="project-image">
+          <h2>Gallery: Notable Projects</h2>
+          <!--Image rows to show mobile application-->
+          <div class="image-row">
+            <img src="images/abdulp1.jpg" alt="Gallery Image 1" />
+            <img src="images/abdulp2.jpg" alt="Gallery Image 2" />
+            <img src="images/abdulp3.jpg" alt="Gallery Image 3" />
+          </div>
+          <p style ="text-align: center; margin-bottom: 50px;">Abdulrahman's Project: A Telegram Bot</p>
+          <!--Brick layout to show application-->
+          <div class="brick-container">
+            <div class="brick"><img src="images/mohamedp1.jpg" alt="Gallery Image 4"></div>
+            <div class="brick"><img src="images/mohamedp2.jpg" alt="Gallery Image 5"></div>
+            <div class="brick"><img src="images/mohamedp3.jpg" alt="Gallery Image 6"></div>
+          </div>
+          <p style ="text-align: center; margin-bottom: 50px;">Mohamed's Project: A video game</p>
+          <div class ="HamzaContainer">
+            <img src="images/Hamza project.jpg" alt="Gallery Image 7" class="hamza-project" />
+            <p style ="text-align: center; margin-bottom: 50px;">Hamza's Project: A Prototype AR Headset</p>
+          </div>
+          
         </section>
       
         <section id="contact">

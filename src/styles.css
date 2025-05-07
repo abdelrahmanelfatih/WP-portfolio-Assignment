@@ -1,4 +1,8 @@
 /* General Reset */
+html{
+    scroll-behavior: smooth;
+  }
+
 * {
     margin: 0;
     padding: 0;
@@ -32,7 +36,7 @@
   }
   
   .logo {
-    width: 60px;
+    width: 240px;
     height: auto;
     display: block;
     margin: 0 auto 10px auto;
@@ -160,4 +164,55 @@
     font-size: 0.9rem;
   }
 
+  .image-row{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .image-row img{
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+   .brick-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    gap: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .brick {
+    padding: 15px;
+    text-align: center;
+  }
+
+  .brick:nth-child(3) {
+    grid-column: 1 / span 2; /* spans both columns */
+  }
+
+  .brick img {
+    max-width: 50%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .brick:nth-child(1) img {
+    max-width: 100%;
+  }
+  .brick:nth-child(2) img {
+    max-width: 80%;
+  }
+
+  .hamza-project {
+    display: block;        /* Makes margin auto work */
+    max-width: 60%;
+    height: auto;
+    margin: 0 auto;        /* This centers it horizontally */
+  }
   
