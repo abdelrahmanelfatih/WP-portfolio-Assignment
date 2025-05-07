@@ -51,8 +51,12 @@ html{
   /* Left Menu */
   .left-menu {
     grid-area: left-menu;
-    background-color: #e6e6e6;
+    background-color: #ffffff;
     padding: 1rem;
+    position: sticky;
+    top: 0; 
+    align-self: start;
+    height: fit-content;
   }
   
   .left-menu ul {
@@ -69,8 +73,12 @@ html{
   /* Right Menu */
   .right-menu {
     grid-area: right-menu;
-    background-color: #e6e6e6;
+    background-color: #ffffff;
     padding: 1rem;
+    position: sticky;
+    top: 0; 
+    align-self: start;
+    height: fit-content;
   }
   
   .right-menu ul {
@@ -230,8 +238,6 @@ html{
     transform:scale(1.05);
     transition: transform 0.3s ease;
   }
-  
-  
 
   .member-links {
     margin-top: 20px;
@@ -254,4 +260,5 @@ html{
     width: 24px;
     height: 24px;
   }
+  
   
