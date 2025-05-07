@@ -213,6 +213,45 @@ html{
     display: block;        /* Makes margin auto work */
     max-width: 60%;
     height: auto;
-    margin: 0 auto;        /* This centers it horizontally */
+    margin: 0 auto;  
+    border-radius: 8px;
+  }
+  
+  .hamza-project:hover {
+    transform: scale(1.05); /* Slightly enlarges the image on hover */
+    transition: transform 0.3s ease; /* Smooth transition */
+  }
+  .brick:nth-child(1):hover, .brick:nth-child(2):hover, .brick:nth-child(3):hover{
+    transform:scale(1.05);
+    transition: transform 0.3s ease;
+  }
+
+  .image-row:hover{
+    transform:scale(1.05);
+    transition: transform 0.3s ease;
+  }
+  
+  
+
+  .member-links {
+    margin-top: 20px;
+  }
+  
+  .member-links a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    gap: 10px; /* spacing between icon and text */
+  }
+  
+  .member-links a:hover {
+    color: #0077cc;
+  }
+  
+  .social-icon {
+    width: 24px;
+    height: 24px;
   }
   
