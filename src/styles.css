@@ -160,6 +160,19 @@ html{
     font-size: 1.1rem;
     color: #333;
   }
+
+  .member-links-container-mohamed {
+    display: flex;
+    flex-direction: column; /* stacks children vertically */
+    gap: 10px; /* optional: adds spacing between them */
+  }
+  
+  .member-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
   
   
   /* Footer */
