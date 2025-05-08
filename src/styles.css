@@ -274,4 +274,96 @@ html{
     height: 24px;
   }
   
-  
+  @media (max-width: 768px) {
+  .grid-container {
+    grid-template-areas:
+      "header"
+      "content"
+      "left-menu"
+      "right-menu"
+      "footer";
+    grid-template-columns: 1fr;
+  }
+
+  .left-menu,
+  .right-menu {
+    position: static;
+    height: auto;
+  }
+
+  .member-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .member-content.left,
+  .member-content.right {
+    flex-direction: column;
+  }
+
+  .member-photo {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 1rem;
+  }
+
+  .image-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .brick-container {
+    grid-template-columns: 1fr;
+  }
+
+  .brick:nth-child(3) {
+    grid-column: auto;
+  }
+
+  .hamza-project {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-areas:
+      "header"
+      "left-menu"
+      "right-menu"
+      "content"
+      "footer";
+    grid-template-columns: 1fr;
+  }
+
+  .left-menu,
+  .right-menu {
+    position: static;
+    height: auto;
+    margin-bottom: 1rem;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .left-menu ul,
+  .right-menu ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .left-menu a,
+  .right-menu a {
+    padding: 8px 12px;
+    background-color: #5D001D;
+    color: white;
+    border-radius: 5px;
+  }
+
+  .left-menu a:hover,
+  .right-menu a:hover {
+    background-color: #E69305;
+    color: #fff;
+  }
+}
