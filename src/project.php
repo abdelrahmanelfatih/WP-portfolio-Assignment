@@ -1,17 +1,16 @@
 <?php
 $host = "localhost";
-$dbname = "portfolio_db"; // ← Change to your DB name
-$username = "root";
+$dbname = "portfolio_db";
 $password = "";
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
-// Check connection
+
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-// Get all projects
+
 $sql = "SELECT * FROM projects";
 $result = $conn->query($sql);
 ?>

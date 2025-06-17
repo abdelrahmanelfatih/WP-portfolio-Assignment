@@ -1,9 +1,9 @@
 <?php
 // Database configuration
 $host = 'localhost';
-$username = 'root';      // Change if needed
-$password = '';          // Change if needed
-$database = 'portfolio_db'; // Use your actual database name
+$username = 'root';     
+$password = '';          
+$database = 'portfolio_db'; 
 
 // Connect to the database
 $conn = new mysqli($host, $username, $password, $database);
@@ -13,7 +13,7 @@ if ($conn->connect_error) {
     die("❌ Connection failed: " . $conn->connect_error);
 }
 
-// Predefined projects with titles, descriptions, and associated image filenames
+
 $projects = [
     [
         "title" => "Abdulrahman's Telegram Bot",
@@ -48,7 +48,7 @@ foreach ($projects as $project) {
         continue;
     }
 
-    // Get the last inserted project ID
+
     $project_id = $stmt->insert_id;
     $stmt->close();
 
