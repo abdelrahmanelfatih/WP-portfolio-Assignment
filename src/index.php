@@ -25,6 +25,7 @@
         <li><a href="#about">About Us</a></li>
         <li><a href="#team-members">Meet the Team</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="project.php">Project Showcase</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -46,6 +47,23 @@
         </section>
         <section id="team-members" style="margin-top: 40px;">
           <h2>Meet The Team</h2>
+
+          <section id="newsletter-signup">
+            <button onclick="showNewsletterForm()">📬 Subscribe to Our Newsletter</button>
+            <div id="newsletterForm" style="display: none; margin-top: 20px;">
+              <form action="subscribe.php" method="POST">
+                <input type="name" name="name" placeholder="Enter your name" required>
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+              </form>
+            </div>
+
+            <?php if (isset($_GET['subscribed'])): ?>
+              <p style="color: green;">✅ Thank you for subscribing!</p>
+            <?php elseif (isset($_GET['error'])): ?>
+              <p style="color: red;">❌ Error: <?= htmlspecialchars($_GET['error']) ?></p>
+            <?php endif; ?>
+          </section>
         </section>
         
         <!-- Member Sections with alternating layout -->
@@ -156,5 +174,11 @@
       <p>&copy; 2025 Mohamed Ramadan, Hamza Zacaria & Abdulrahman Elfatih. All rights reserved.</p>
     </footer>
   </div>
+  <script>
+  function showNewsletterForm() {
+    document.getElementById("newsletterForm").style.display = "block";
+  }
+</script>
+
 </body>
 </html>
