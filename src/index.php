@@ -46,12 +46,12 @@
         </section>
         <section id="team-members" style="margin-top: 40px;">
           <h2>Meet The Team</h2>
-            <!-- Newsletter Signup Section -->
+
           <section id="newsletter-signup">
             <button onclick="showNewsletterForm()">📬 Subscribe to Our Newsletter</button>
-
             <div id="newsletterForm" style="display: none; margin-top: 20px;">
               <form action="subscribe.php" method="POST">
+                <input type="name" name="name" placeholder="Enter your name" required>
                 <input type="email" name="email" placeholder="Enter your email" required>
                 <button type="submit">Subscribe</button>
               </form>
@@ -173,5 +173,11 @@
       <p>&copy; 2025 Mohamed Ramadan, Hamza Zacaria & Abdulrahman Elfatih. All rights reserved.</p>
     </footer>
   </div>
+  <script>
+  function showNewsletterForm() {
+    document.getElementById("newsletterForm").style.display = "block";
+  }
+</script>
+
 </body>
 </html>
