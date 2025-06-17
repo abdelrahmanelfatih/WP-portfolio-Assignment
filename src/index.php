@@ -46,6 +46,23 @@
         </section>
         <section id="team-members" style="margin-top: 40px;">
           <h2>Meet The Team</h2>
+            <!-- Newsletter Signup Section -->
+          <section id="newsletter-signup">
+            <button onclick="showNewsletterForm()">📬 Subscribe to Our Newsletter</button>
+
+            <div id="newsletterForm" style="display: none; margin-top: 20px;">
+              <form action="subscribe.php" method="POST">
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+              </form>
+            </div>
+
+            <?php if (isset($_GET['subscribed'])): ?>
+              <p style="color: green;">✅ Thank you for subscribing!</p>
+            <?php elseif (isset($_GET['error'])): ?>
+              <p style="color: red;">❌ Error: <?= htmlspecialchars($_GET['error']) ?></p>
+            <?php endif; ?>
+          </section>
         </section>
         
         <!-- Member Sections with alternating layout -->
