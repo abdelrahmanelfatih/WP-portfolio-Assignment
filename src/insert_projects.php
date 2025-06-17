@@ -3,7 +3,7 @@
 $host = 'localhost';
 $username = 'root';      // Change if needed
 $password = '';          // Change if needed
-$database = 'newsletter_db'; // Use your actual database name
+$database = 'portfolio_db'; // Use your actual database name
 
 // Connect to the database
 $conn = new mysqli($host, $username, $password, $database);
