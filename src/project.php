@@ -1,85 +1,78 @@
 <?php
-// Database configuration
-$host = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'portfolio_db';
+$host = "localhost";
+$dbname = "portfolio_db"; // ← Change to your DB name
+$username = "root";
+$password = "";
 
-$conn = new mysqli($host, $username, $password, $database);
+$conn = new mysqli($host, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+  die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch all projects
-$projects_sql = "SELECT * FROM projects";
-$projects_result = $conn->query($projects_sql);
+// Get all projects
+$sql = "SELECT * FROM projects";
+$result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Project Showcase</title>
   <link rel="stylesheet" href="styles.css" />
-  <style>
-    .project-card {
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 30px;
-      background-color: #f9f9f9;
-    }
-    .project-images img {
-      max-width: 200px;
-      margin: 10px;
-      border-radius: 8px;
-    }
-    .project-title {
-      font-size: 24px;
-      font-weight: bold;
-    }
-    .project-description {
-      margin-top: 10px;
-    }
-  </style>
 </head>
 <body>
-  <h1 style="text-align:center;">🛠️ Our Project Showcase</h1>
-  <div class="projects-container" style="width: 90%; margin: 0 auto;">
+  <div class="grid-container">
+    <header class="header">
+      <h1>Our Projects</h1>
+      <a href="index.php" style="color: white; text-decoration: underline;">← Back to Home</a>
+    </header>
 
-  <?php
-  if ($projects_result->num_rows > 0) {
-      while ($project = $projects_result->fetch_assoc()) {
-          echo "<div class='project-card'>";
-          echo "<div class='project-title'>" . htmlspecialchars($project['title']) . "</div>";
-          echo "<div class='project-description'>" . htmlspecialchars($project['description']) . "</div>";
+    <main class="content">
+      <?php
+      if ($result && $result->num_rows > 0):
+        while ($project = $result->fetch_assoc()):
+      ?>
+        <section class="project-card" style="margin-bottom: 50px; padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
+          <h2 style="margin-bottom: 10px;"><?= htmlspecialchars($project['title']) ?></h2>
+          <p style="margin-bottom: 15px;"><?= nl2br(htmlspecialchars($project['description'])) ?></p>
 
-          // Fetch images for this project
+          <?php
+          // Fetch project images
           $project_id = $project['id'];
-          $images_sql = "SELECT image_filename FROM project_images WHERE project_id = $project_id";
-          $images_result = $conn->query($images_sql);
+          $img_sql = "SELECT image_filename FROM project_images WHERE project_id = ?";
+          $stmt = $conn->prepare($img_sql);
+          $stmt->bind_param("i", $project_id);
+          $stmt->execute();
+          $img_result = $stmt->get_result();
 
-          if ($images_result->num_rows > 0) {
-              echo "<div class='project-images'>";
-              while ($img = $images_result->fetch_assoc()) {
-                  $img_path = "images/" . htmlspecialchars($img['image_filename']);
-                  echo "<img src='$img_path' alt='Project Image'>";
-              }
-              echo "</div>";
-          } else {
-              echo "<p>No images found.</p>";
-          }
+          if ($img_result && $img_result->num_rows > 0): ?>
+            <div class="image-row" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 10px;">
+              <?php while ($img = $img_result->fetch_assoc()): ?>
+                <img src="images/<?= htmlspecialchars($img['image_filename']) ?>" alt="Project Image" style="max-width: 200px; border-radius: 5px;" />
+              <?php endwhile; ?>
+            </div>
+          <?php endif; ?>
 
-          echo "</div>";
-      }
-  } else {
-      echo "<p>No projects available.</p>";
-  }
+          <?php if (!empty($project['project_url'])): ?>
+            <p><a href="<?= htmlspecialchars($project['project_url']) ?>" target="_blank" style="color: blue; text-decoration: underline;">🔗 View Project</a></p>
+          <?php endif; ?>
+        </section>
+      <?php
+        endwhile;
+      else:
+      ?>
+        <p>No projects found.</p>
+      <?php endif; ?>
+    </main>
 
-  $conn->close();
-  ?>
+    <footer class="footer">
+      <p>&copy; 2025 Mohamed Ramadan, Hamza Zacaria & Abdulrahman Elfatih. All rights reserved.</p>
+    </footer>
   </div>
 </body>
 </html>
+
+<?php $conn->close(); ?>
